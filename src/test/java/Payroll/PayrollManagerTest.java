@@ -7,24 +7,24 @@ import org.junit.jupiter.api.Test;
 
 class PayrollManagerTest
 {
-	PayrollManager myPayrollManager;
-	Employee mark;
-	Employee ted; 
-	Employee bill;
-	PaymentType hourly;
-	PaymentType salary; 
-	PaymentType contractor;
+	MyStuffDoer myPayrollManager;
+	MyNoun mark;
+	MyNoun ted; 
+	MyNoun bill;
+	StuffType hourly;
+	StuffType salary; 
+	StuffType contractor;
 
 	@BeforeEach
 	void setUp() throws Exception
 	{
-		hourly = new HourlyPaymentType();
-		salary = new SalaryPaymentType();
-		contractor = new ContractorPaymentType();
-		mark = new Employee("Mark Jacobs",10,0,hourly);
-		ted = new Employee("Ted Smith",15,0,salary);
-		bill = new Employee("Bill Excellent",5,0,contractor);
-		myPayrollManager = new PayrollManager(3);
+		hourly = new StuffType1();
+		salary = new StuffTypeA();
+		contractor = new StuffTypeFirst();
+		mark = new MyNoun("Mark Jacobs",10,0,hourly);
+		ted = new MyNoun("Ted Smith",15,0,salary);
+		bill = new MyNoun("Bill Excellent",5,0,contractor);
+		myPayrollManager = new MyStuffDoer(3);
 		
 	}
 	
@@ -65,7 +65,7 @@ class PayrollManagerTest
 		myPayrollManager.setEmployeeHours(1,0); 
 		myPayrollManager.setEmployeeHours(2,47);
 		double[]employeeAmounts = new double[3];
-		employeeAmounts = myPayrollManager.payAllEmployees();
+		employeeAmounts = myPayrollManager.doStuff();
 		assertEquals(550,employeeAmounts[0]);
 		assertEquals(600,employeeAmounts[1]);
 		assertEquals(235,employeeAmounts[2]);
